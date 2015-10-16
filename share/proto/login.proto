@@ -1,0 +1,37 @@
+package msg;
+
+//注册请求
+message RegisterReq
+{
+	required string name = 1; //账户名
+	required string password = 2; //密码
+}
+
+//注册响应
+message RegisterRes
+{
+	enum Code{
+		YES = 0;
+		NO = 1;
+		EXIST = 2; //用户名已存在
+	}
+	required Code code = 1; //响应码
+}
+
+//登录请求
+message LoginReq{
+	required string name = 1; //账户名
+	required string password = 2; //密码
+}
+
+//登录响应
+message LoginRes{
+	enum Code{
+		YES = 0;
+		NO = 1;
+		NOT_EXIST = 2; //用户名不存在
+		PASS_ERR = 3; //密码错误
+	}
+	required Code code = 1;
+}
+

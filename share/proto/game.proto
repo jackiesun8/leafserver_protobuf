@@ -1,0 +1,34 @@
+package msg;
+
+//服务器关闭连接推送
+message ClosePush{
+	enum Code{
+		REPEATED = 0; //重复登录
+		INNER = 1; //内部错误
+	}
+	required Code code = 1;
+}
+
+//房间列表请求
+message RoomListReq{
+
+}
+
+//房间列表响应
+message RoomListRes{
+	message RoomInfo{
+		required int32 id = 1; //房间ID
+		required int32 player_num = 2; //玩家人数
+	}
+	repeated RoomInfo rooms = 1; //房间列表
+}
+
+//进入房间请求
+message EnterRoomReq{
+	required int32 id = 1; //房间ID
+}
+
+//退出房间请求
+message ExitRoomReq{
+
+}
